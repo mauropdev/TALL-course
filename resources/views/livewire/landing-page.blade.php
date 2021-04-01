@@ -1,7 +1,7 @@
 <div 
 x-data="{
     showSubscribe: false,
-    showSuccess: true,
+    showSuccess: false,
 }" 
 class="flex flex-col bg-indigo-900 h-screen"
 >
