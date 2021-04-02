@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\SubscriberController;
+
 Route::get('/', function () {
     return view('dashboard');
 })->name('dashboard');
