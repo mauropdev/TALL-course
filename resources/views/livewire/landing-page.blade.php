@@ -47,7 +47,7 @@ class="flex flex-col bg-indigo-900 h-screen"
                 type="email"
                 name="email"
                 placeholder="Email address"
-                wire:model="email"
+                wire:model.defer="email"
                 >
             </x-input>
             <span class="text-gray-100 text-xs">
@@ -56,7 +56,8 @@ class="flex flex-col bg-indigo-900 h-screen"
                 }}                
             </span>
             <x-button class="px-5 py-3 mt-5 w-80 bg-blue-500 justify-center">
-                Get in
+                <span class="animate-spin" wire:loading wire:target="subscribe">&#9696;</span>
+                <span wire:remove wire:target="subscribe">Get in</span>
             </x-button>
         </form>
     </x-modal>
