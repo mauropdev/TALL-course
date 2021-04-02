@@ -43,7 +43,7 @@ class="flex flex-col bg-indigo-900 h-screen"
             wire:submit.prevent="subscribe"
         >
             <x-input 
-                class="px-5 py-3 w-80 border-blue-400 border-blue-400"
+                class="px-5 py-3 w-80 border-blue-400"
                 type="email"
                 name="email"
                 placeholder="Email address"
@@ -67,8 +67,14 @@ class="flex flex-col bg-indigo-900 h-screen"
         <p class="text-white font-extrabold text-5xl text-center mt-16">
             Great!
         </p>
-        <p class="text-white text-3xl text-center ">
-            See you in your inbox
-        </p>
+        @if (request()->has('verified') && request()->verified == 1)
+            <p class="text-white text-3xl text-center ">
+                Thanks for confirming.
+            </p>
+        @else
+            <p class="text-white text-3xl text-center ">
+                See you in your inbox.
+            </p>
+        @endif        
     </x-modal>
 </div> 

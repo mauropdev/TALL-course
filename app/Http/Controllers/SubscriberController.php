@@ -13,6 +13,6 @@ class SubscriberController extends Controller
             $subscriber->markEmailAsVerified();
         }
 
-        return redirect('/?verified=1')
+        return redirect('/?verified=1');
     }
 }
