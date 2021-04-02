@@ -11,6 +11,8 @@ use Livewire\Component;
 class LandingPage extends Component
 {
     public $email = '';
+    public $showSubscribe = false;
+    public $showSuccess = false;
 
     protected $rules = [
         'email' => 'required|email:filter|unique:subscribers,email'
@@ -29,7 +31,7 @@ class LandingPage extends Component
 
             $notification::createUrlUsing(function($notifiable){
                 return URL::temporarySignedRoute(
-                    'subscribers:verify',
+                    'subscribers.verify',
                     now()->addMinutes(30),
                     [
                         'subscriber' => $notifiable->getKey(),
@@ -39,11 +41,11 @@ class LandingPage extends Component
     
             $subscriber->notify($notification);
 
-        }, $deadLockRetries = 5);
-
-        
+        }, $deadLockRetries = 5);        
 
         $this->reset('email');
+        $this->showSubscribe = false;
+        $this->showSuccess = true;
     }
 
     public function render()
